@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Lab-2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+ <title>Registration Page</title>
+    <script>
+        function registration()
+        {
+            if(document.getElementById('fn').value.length>0 && document.getElementById('ln').value.length>0 && document.getElementById('email').value.length>0 && document.getElementById('add1').value.length>0 && document.getElementById('city').value.length>0 && document.getElementById('zip').value.length>0 && document.getElementById('username').value.length>0 && document.getElementById('password').value.length>0 && document.getElementById('cpassword').value.length>0 &&
+                    ( document.getElementById('cpassword').value ==document.getElementById('password').value))
+            {
+                localStorage.setItem('UserName',(document.getElementById('username').value));
+                localStorage.setItem('Password',(document.getElementById('password').value));
+                window.location.href='LoginPage.html';
+            }
+            else
+            {
+                alert('Dear user, you have missed entering few details !');
+            }
+        }
+    </script>
+</head>
+<style>
+	
+body
+{
+    background-image: url(https://www.robertscheinfeld.com/wp/wp-content/uploads/2012/03/sun-clouds1.jpg);
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+.wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+</style>
+<body>
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+
+<legend><center><h1>Registration</h1></center></legend>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="fn">First name</label>  
+  <div class="col-md-4">
+  <input id="fn" name="fn" type="text" placeholder="Enter your first name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="ln">Last name</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="Enter your last name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email</label>  
+  <div class="col-md-4">
+  <input id="email" name="email" type="email" placeholder="Enter your email id" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="add1">Address 1</label>  
+  <div class="col-md-4">
+  <input id="add1" name="add1" type="text" placeholder="Enter house number" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="add2">Address 2</label>  
+  <div class="col-md-4">
+  <input id="add2" name="add2" type="text" placeholder="Enter area name" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="city">City</label>  
+  <div class="col-md-4">
+  <input id="city" name="city" type="text" placeholder="Enter city" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="zip">Zip Code</label>  
+  <div class="col-md-4">
+  <input id="zip" name="zip" type="text" placeholder="Enter zip code" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="ctry">Country</label>  
+  <div class="col-md-4">
+   <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Austria</option>
+      <option>Algeria</option>
+      <option>Australia</option>
+      <option>Bangladesh</option>
+      <option>Belgium</option>
+      <option>Bhutan</option>
+      <option>Brazil</option>
+      <option>Bulgaria</option>
+      <option>Canada</option>
+      <option>Chile</option>
+      <option>Columbia</option>
+      <option>CostaRica</option>
+      <option>Cuba</option>
+      <option>Denmark</option>
+      <option>Dominican Republic</option>
+      <option>Egypt</option>
+      <option>Ethiopia</option>
+      <option>Fiji</option>
+      <option>Finland</option>
+      <option>France</option>
+      <option>Georgia</option>
+      <option>Germany</option>
+      <option>Ghana</option>
+      <option>Greece</option>
+      <option>Hong Kong</option>
+      <option>Hungary</option>
+      <option>India</option>
+      <option>Indonesia</option>
+      <option>Iran</option>
+      <option>Iraq</option>
+      <option>Ireland</option>
+      <option>Israel</option>
+      <option>Italy</option>
+      <option>Japan</option>
+      <option>Kenya</option>
+      <option>Korea</option>
+      <option>Kuwait</option>
+      <option>Libya</option>
+      <option>Macao</option>
+      <option>Malaysia</option>
+      <option>Maldives</option>
+      <option>Mexico</option>
+      <option>Morocco</option>
+      <option>Nepal</option>
+      <option>Netherlands</option>
+      <option>Nigeria</option>
+      <option>Norway</option>
+      <option>Oman</option>
+      <option>Pakistan</option>
+      <option>Poland</option>
+      <option>Portugal</option>
+      <option>Qatar</option>
+      <option>Russia</option>
+      <option>Saudi Arabia</option>
+      <option>South Africa</option>
+      <option>Sri Lanka</option>
+      <option>Spain</option>
+      <option>Switzerland</option>
+      <option>Taiwan</option>
+      <option>Thailand</option>
+      <option>Turkey</option>
+      <option>Uganda</option>
+      <option>United Arab Emirates</option>
+      <option>United Kingdom</option>
+      <option>United States of America</option>
+      <option>Vietnam</option>
+      <option>Yemen</option>
+      <option>Zembabwe</option>
+    </select>
+  Other<input id="ctry" name="ctry" type="text" placeholder="Enter country" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="phone">Phone</label>  
+  <div class="col-md-4">
+  <input id="phone" name="phone" type="tel" size="10" placeholder="Enter your Phone#" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Training">Gender</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline" for="Training-0">
+      <input type="radio" name="Training" id="Training-0" value="male" checked="checked">
+      Male
+    </label> 
+    <label class="radio-inline" for="Training-1">
+      <input type="radio" name="Training" id="Training-1" value="no">
+      Female
+    </label>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="username">Username</label>  
+  <div class="col-md-4">
+  <input id="username" name="username" type="text" placeholder="Enter your username" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">Password</label>  
+  <div class="col-md-4">
+  <input id="password" name="password" type="password" placeholder="Enter your password" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="cpassword">Confirm Password</label>  
+  <div class="col-md-4">
+  <input id="cpassword" name="cpassword" type="password" placeholder="Re-enter your password" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+  <center>
+    <input type="button" name="Register" value="Register" onclick="registration()">
+  </center>
+  </div>
+</div>
+
+</fieldset>
+</form>
+<body>
+</html>

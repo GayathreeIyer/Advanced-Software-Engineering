@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+  <meta t="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab2</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    
+  <link rel="stylesheet" href="css/main.css">  
+    
+    <style>
+
+	body
+{
+    background-image: url(https://www.robertscheinfeld.com/wp/wp-content/uploads/2012/03/sun-clouds1.jpg);
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+     #map-canvas {
+    width: 900px;
+    height: 350px;
+    left: 50px;
+    top: 10px;
+    
+}
+      .weatherModuleI {
+display: inline-block;    
+    height:150px;
+    width:150px;
+    border: 2px groove #ccc;
+    padding: 1em;
+    float:left;
+    position: relative;
+    bottom: -100px;
+    background:#E0FFFF;
+}
+  .weatherModuleII {
+display: inline-block; 
+   
+    height:150px;
+    width:150px;
+    border: 2px groove #ccc;
+    padding: 1em;
+    float:right;
+    position: relative;
+    bottom: -100px;
+    background:#E0FFFF;
+}
+.currentConditions {
+    float: left;
+}
+.currentConditions1 {
+    float: middle;
+}
+
+.currentIcon {
+    float: left;
+    margin: 0 .75em;
+}
+    </style>
+<script>
+angular.module('GoogleDirection', [])
+.controller('googlemapoutput', function ($scope,$http) {
+    var map;
+    var mapOptions;
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        draggable: true
+    });
+    var directionsService = new google.maps.DirectionsService();
+    $scope.initialize = function () {
+   var ser = window.location.search;
+	String(ser);
+	var fields = String(ser).split("&");
+	var data = String(fields[0]).split("=");
+	
+          var pos = new google.maps.LatLng(0, 0); 
+          var mapOptions = {
+                zoom: 3,
+                center: pos
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+     };
+    $scope.calcRoute = function () {
+       var end = document.getElementById('endloc').value;
+            var start = document.getElementById('startloc').value;
+            if(start.length==0){
+            document.getElementById('startloc').value='Kansas City'
+            }
+            var location1 = 'http://api.openweathermap.org/data/2.5/weather?q='+start;
+            var location2 = 'http://api.openweathermap.org/data/2.5/weather?q='+end;
+            var a1,a2;
+             $http.get(location1).
+                success(function(data) {
+                 a1=data.main.temp;
+                   a2= data.weather[0].description;
+                
+                });
+            $http.get(location2).
+                success(function(data) {
+                   a2= data.main.temp;
+                });
+        
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setMap(map);
+                    directionsDisplay.setDirections(response);
+                    console.log(status);
+                }
+           
+        });
+    };
+    $scope.getWeather = function() {
+	
+	var start = document.getElementById('startloc').value;
+	
+	var end = document.getElementById('endloc').value;
+	
+$http.get(   'http://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+start+'.json').success(function(data) {
+					document.querySelector(".weatherModuleI").style.display = 'block';
+          $scope.temp = data.current_observation.temp_f;
+               $scope.icon = data.current_observation.icon_url;
+                $scope.weather = data.current_observation.weather;                  
+})
+$http.get(   'http://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+end+'.json').success(function(data) {
+					document.querySelector(".weatherModuleII").style.display = 'block';
+          $scope.temp1 = data.current_observation.temp_f;
+               $scope.icon1 = data.current_observation.icon_url;
+                $scope.weather1 = data.current_observation.weather;  
+					
+})
+}
+  
+    $scope.getMyPos = function () {
+        
+         navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = new google.maps.LatLng(
+            position.coords.latitude,
+            position.coords.longitude);
+            var mapOptions = {
+                zoom: 16,
+                center: pos
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map
+            });
+        });
+        
+        
+     };
+    
+        
+    google.maps.event.addDomListener(window, 'load', $scope.initialize);
+});         
+                
+</script>
+</head>
+
+<body>
+
+<table align="center" width"800">
+<tr><td width="500"></td><td>
+</td></tr></table>
+<center><h1 id="heading">Direction and Weather</h1></center>
+
+<div class="wrapp" ng-controller="googlemapoutput">
+         <div class="row">
+		  
+             <center><label> Source City</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" ng-model="startlocation" id="startloc"/></center>&nbsp;&nbsp;&nbsp;&nbsp;
+             
+             <br>
+             <br>
+			  
+             <center><label>Destination City</label>&nbsp;
+             <input type="text"  ng-model="endlocation" id="endloc" /></center>
+             <br><br>
+              <center>  <button id="btn" ng-click="calcRoute();getWeather();">
+                    Get Direction and Weather
+                </button></center>
+                 <br/></br>
+
+
+
+<div class="weatherModuleI" style="display:none;">
+   
+<p class="currentConditions">Current Temperature: {{temp}} &deg F <br/> weather condition: {{weather}}</p>
+<div class="currentIcon"><img src="{{icon}}"/></div></td>
+</div>
+ <div class="weatherModuleII" style="display:none;">
+<p >Current Temperature: {{temp1}} &deg F <br/> weather condition: {{weather1}}</p>
+<div class="currentIcon"><img src="{{icon1}}"/></div>
+</div>
+
+          
+            <div id="map-canvas" style="height: 400px;"></div>
+        </div>
+    </body>
+</html>
+
+
+
