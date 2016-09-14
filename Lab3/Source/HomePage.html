@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+      <script src="app.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+      <script src="jquery-3.1.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Lab-3</title>
+
+    <link rel="stylesheet" href="style.css">
+     </head>
+
+  <body ng-app="Sentiment">
+    <h1>Match Your Phrase</h1>
+    <p>Test phrase recognition by pressing the button below:::</p>
+
+    <button>Start new test</button>
+
+    <div class="sample">
+        <p class="phrase">Phrase...</p>
+        <p class="result">Right or wrong??</p>
+        <p class="output">Diagnostic messages</p>
+    </div>
+
+
+    <div class="test" ng-controller="analyze">
+        <button class="btn btn-primary" ng-click="sentimentfinder()">Get Sentiment Analysis</button>
+    <div id="list" style="display: none;">
+             <div class="table">
+                <p ng-model="SentimentFU">
+           <b> Sentiment -> {{SentimentFU.sentiment}}<br><br>
+           <b> Score -> {{SentimentFU.score}}<br>
+        </p>
+                </div>
+</div>
+    </div>
+
+  <script src="script.js"></script>
+  </body>
+</html>

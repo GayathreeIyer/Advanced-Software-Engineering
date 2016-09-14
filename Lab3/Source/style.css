@@ -1,0 +1,73 @@
+body, html {
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  background-color: bisque;
+}
+
+body {
+  height: inherit;
+  overflow: hidden;
+}
+
+h1, p {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+div p {
+  padding: 20px;
+  background-color: rgba(0,0,0,0.2);
+}
+
+div.sample {
+  overflow: auto;
+  position: absolute;
+  bottom:220px;
+  right: 0;
+  left: 0;
+}
+div.test{
+  overflow: auto;
+  position: absolute;
+  bottom:30px;
+  height:200px;
+  right: 0;
+  left: 0;
+}
+
+div.table{
+  overflow: auto;
+  position: absolute;
+  bottom:-10px;
+  right: 0;
+  left: 0;
+}
+
+button {
+  margin: 0 auto;
+  display: block;
+  font-size: 1.1rem;
+  width: 300px;
+  line-height: 2;
+  margin-top: 30px;
+}
+
+@media all and (max-height: 410px) {
+  div {
+    position: static;
+  }
+}
+
+.phrase {
+  font-weight: bold;
+}
+
+.output {
+  font-style: italic;
+}
+footer{
+  padding-top:80%;
+}

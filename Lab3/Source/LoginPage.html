@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Login Page</title>
+	<meta name="website" content="Lab2">
+	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+ <script>
+        function registration()
+        {
+            window.location.href='Registration.html';
+        }
+        function login()
+        {
+            if(document.getElementById('username').value.length>0 && document.getElementById('password').value.length>0)
+            {
+                    if(document.getElementById('username').value==localStorage.getItem('UserName')
+                            && document.getElementById('password').value==localStorage.getItem('Password'))
+                    {
+                        window.location.href='HomePage.html';
+                    }
+                else
+                    {
+                        alert('Please enter correct details !');
+                    }
+            }
+            else
+            {
+                alert('Dear user, you have missed entering few details');
+            }
+        }
+
+	   function onSuccess(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            gapi.client.load('plus', 'v1', function () {
+            var request = gapi.client.plus.people.get({
+	        'userId': 'me'
+		
+        });
+        //Display the user details
+            request.execute(function (resp) {
+            var profileHTML = '<div class="profile"><div class="head">Welcome '+resp.name.givenName+'! <a href="javascript:void(0);" onclick="signOut();">Sign out</a></div>';
+            profileHTML += '<img src="'+resp.image.url+'"/><div class="proDetails"><p>'+resp.displayName+'</p><p>'+resp.emails[0].value+'</p><p>'+resp.gender+'</p><p>'+resp.id+'</p><p><a href="'+resp.url+'">View Google+ Profile</a></p></div></div>';
+            $('.userContent').html(profileHTML);
+            $('#gSignIn').slideUp('slow');
+        });
+    });
+}
+function onFailure(error) {
+    alert(error);
+}
+function renderButton() {
+    gapi.signin2.render('gSignIn', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+    });
+}
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        $('.userContent').html('');
+        $('#gSignIn').slideDown('slow');
+    });
+}
+
+
+    </script>
+
+</head>
+<style>
+div{
+-webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 2s infinite;}
+
+@-webkit-keyframes mymove {
+    from {background-color: bisque;}
+    to {background-color: gray;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {background-color: gray;}
+    to {background-color: bisque;}
+}	
+body
+{
+    background-color: bisque;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    font:13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+     font-stretch: ultra-condensed;
+}
+
+.wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+p.form-title
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    margin-top: 5%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+form
+{
+    width: 250px;
+    margin: 0 auto;
+}
+
+form.login input[type="text"], form.login input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #000000;
+    outline: 0;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #000000;
+    outline: 0;
+}
+
+form.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+form.login input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+form.login .remember-forgot
+{
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+form.login .register
+{
+    font-size: 12px;
+    font-weight: 400;
+    color: #000000;
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+form.login .forgot-pass-content
+{
+    min-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+form.login label, form.login a
+{
+    font-size: 12px;
+    font-weight: 400;
+    color: #000000;
+}
+
+form.login a
+{
+    transition: color 0.5s ease;
+}
+
+form.login a:hover
+{
+    color: #2ecc71;
+}
+
+.pr-wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+.show-pass-reset
+{
+    display: block !important;
+}
+
+.pass-reset
+{
+    margin: 0 auto;
+    width: 250px;
+    position: relative;
+    margin-top: 22%;
+    z-index: 999;
+    background: #FFFFFF;
+    padding: 20px 15px;
+}
+
+.pass-reset label
+{
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.pass-reset input[type="email"]
+{
+    width: 100%;
+    margin: 5px 0 0 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #000000;
+    outline: 0;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #000000;
+    outline: 0;
+}
+
+.pass-reset input[type="submit"]
+{
+    width: 100%;
+    border: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 10px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.pass-reset input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+.posted-by
+{
+    position: absolute;
+    bottom: 26px;
+    margin: 0 auto;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.66);
+    padding: 10px;
+    left: 45%;
+}
+
+</style>
+<body>
+
+		<div align="center" style="padding-top: 20px">
+	  <p class="form-title"><div class="container"><legend><h2><span class="glyphicon glyphicon-lock"></span> SIGN IN </h2></legend></div>
+                   </p> </br></br>
+        <input type="text" id="username" placeholder="UserName" align="vertical"/><br/>
+        <br/>
+        <input type="password" id="password" placeholder="Password"/><br/>
+        <br/>
+        <br/>
+        <input type="button" id="login" value="Login" align="center" onclick="login()"/>
+        <input type="button" id="register" value="Signup" align="center" onclick="registration()"/>
+        <br/>
+ 	<div style="text-align: center;"><a class='login' href='https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=436839725052-u0benerpc63i3upk02qor56n9j0l7vhm.apps.googleusercontent.com&redirect_uri=http://localhost:63342/Lab3/Source/HomePage.html?_ijt=ah7lsb836hovkpf5n1rc0bhv8o&scope=email&access_type=online&approval_prompt=auto'><img src='google+.png' height='48px'/></a></div></div>
+    </div>
+</body>
+</html>
