@@ -13,3 +13,6 @@ Lab-4:: https://github.com/GayathreeIyer/Advanced-Software-Engineering/wiki/Lab-
 
 
 Lab-5:: https://github.com/GayathreeIyer/Advanced-Software-Engineering/wiki/Lab-Assignment::-5
+
+
+Lab-6:: https://github.com/GayathreeIyer/Advanced-Software-Engineering/wiki/Lab-Assignment::-6
