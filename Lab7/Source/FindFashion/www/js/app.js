@@ -7,7 +7,7 @@ angular.module('myApp', [])
     .controller('MainCtrl', function ($scope, $http) {
         $scope.venueList = new Array();
         $scope.mostRecentReview;
- 
+ $scope.navigator.splashscreen.show();
         $scope.getVenues = function () {
             var placeEntered = document.getElementById("city").value;
             var searchQuery = document.getElementById("cloth").value;
