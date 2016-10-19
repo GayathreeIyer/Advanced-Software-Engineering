@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Manage Your Calorie</title>
+    <div class="container">
+        <div class="bg-primary" style="text-align:center; background-color:maroon; color:white; font-family: Arial"><h1>Manage Your Calorie</h1></div>
+        </div>
+
+</head>
+<body ng-app=calculate>
+<div ng-controller=calculatectrl>
+    <form>
+    <div class="form-group"> <label for="height"></label>
+        <input type="number" class="form-control"placeholder="Enter your Weight in kg" id="height" ng-model="h">
+    </div>
+    <div class="form-group"> <label for="weight"></label>
+        <input type="number" class="form-control" placeholder="Enter your height in inches" id="weight" ng-model="w">
+    </div>
+	    <div class="form-group"> <label for="weight"></label>
+        <input type="number" class="form-control" placeholder="Enter your age" id="age" ng-model="a">
+    </div>
+
+    </form>
+<div class="xyz" style="align:center">
+    <button class="btn btn-success" style="background-color:maroon; color:white" ng-click="FPC()">Proceed</button>
+	
+</div>
+    <div class="whole">
+    <p ng-model=cal>
+      
+
+        <div class="bg-danger">Amount of Calorie:&nbsp&nbsp{{cal.calorie}}</div><br>
+        <div class="bg-success">Amount of FAT:&nbsp&nbsp{{cal.fat}} %</div><br>
+		<div class="bg-success">Amount of PROTEIN:&nbsp&nbsp{{cal.protein}} %</div><br>
+		<div class="bg-success">Amount of CARB:&nbsp&nbsp{{cal.carb}} %</div><br>
+		
+    
+
+
+    </p>
+        </div>
+</div>
+</body>
+</html>
