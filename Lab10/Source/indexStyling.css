@@ -1,0 +1,61 @@
+.h1{
+    font-family: "calibri";
+    background-image: url("database.jpg");
+    background-size: cover;
+    color: white;
+    font-size: larger;
+}
+.main1{
+
+    margin-top: 60px;
+}
+.main2{
+    margin-left: 150px;
+}
+.main3{
+    margin-left: 200px;
+   margin-top: -50px;
+}
+.m1{
+    margin-top: -15px;
+}
+.m2{
+    margin-top: -15px;
+}
+.m3{
+    margin-top: -15px;
+}
+.m4{
+    margin-top: -15px;
+}
+.m5{
+    margin-top: -15px;
+}
+.m6{
+    margin-top: -5px;
+    margin-left: -80px;
+
+}
+.a1{
+
+}
+.text1{
+    border-style: solid;
+    color: darkblue;
+    font-size:12pt;
+    height:25px;
+    width:300px;
+}
+
+.button {
+    background-color: antiquewhite;
+    color: darkblue;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}

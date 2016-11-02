@@ -1,0 +1,32 @@
+.h1{
+    background-image: url("database.jpg");
+    background-size: cover;
+    color: antiquewhite;
+    font-family: "calibri";
+    font-size: large;
+}
+.container{
+    background-color: antiquewhite;
+    color: black;
+}
+.cl{
+    background-color: antiquewhite;
+    border: none;
+    color: black;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.text1{
+    border-style: solid;
+    border-color: antiquewhite;
+    color: black;
+    font-size:13pt;
+    height:20px;
+    width:300px;
+}

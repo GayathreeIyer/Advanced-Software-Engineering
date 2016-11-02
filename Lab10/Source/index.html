@@ -1,0 +1,46 @@
+<html ng-app="MongoLab10" ng-controller="MongoLab10Controller" class="h1">
+<head >
+    <title>User Details</title>
+
+</head>
+<body>
+        <div class="main1" align="center">
+        <form class="contact_form"  ng-submit="insertData()" name="contact_form">
+            <div class="main2" align="center">
+            <h1>Please Register Here !!</h1>
+                <div class="m1" align="center"><span class="form_hint"></span>
+                    <div class="a1" align="center"><input type="text" class="text1" name="fname" placeholder="Enter your First Name" ng-model="formData.fname" required /></div>
+<br><br></div>
+                <div class="m2" align="center"><span class="form_hint"></span>
+                    <div class="a1" align="center"> <input type="text" class="text1" name="lname" ng-model="formData.lname" placeholder="Enter your Last Name" required /></div>
+                    <br><br></div>
+                    <div class="m3" align="center"><span class="form_hint"></span>
+                    <div class="a1" align="center"> <input type="email" class="text1" name="email" ng-model="formData.email" placeholder="Enter your Email-Id" required /></div>
+                        <br><br></div>
+                <div class="m4" align="center"> <span class="form_hint"></span>
+                    <div class="a1" align="center"> <input type="password" name="password" class="text1" ng-model="formData.password" placeholder="Enter your Password"></div>
+                    <br><br></div>
+                <div class="m5" align="center"><span class="form_hint"></span>
+                    <div class="a1" align="center"> <input type="password" name="cpassword" class="text1" ng-model="formData.cpassword" placeholder="Confirm your Password"></div>
+                    <br><br></div>
+           <div class="m6" align="center"> <input type="submit" class="button" name="Sign In"  value="New User? Register"/></div>
+                <div class="main3" align="center">
+                    <input type="button" value="LogIn" class="button" onclick="go()"/>
+                    <script>
+                        function go() {
+                            window.location='myHtml.html';
+                        }
+                    </script>
+                </div>
+            </div>
+        </form>
+
+            </div>
+
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+<script src="app.js"></script>
+<link rel="stylesheet" href="indexStyling.css" type="text/css">
+</body>
+</html>
