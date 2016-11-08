@@ -1,0 +1,65 @@
+form{
+    font-size: medium;
+    font-family: "Comic Sans MS";
+    color:#ffffff;
+    padding-left: 10%;
+    padding-top: 1%;
+    padding-right: 60%;
+
+}
+.form-group{
+    font-size: medium;
+    font-family: "Comic Sans MS";
+    color:#ffffff;
+    top:-20px;
+
+}
+.form-control {
+
+    padding-left: 10%;
+    padding-top: 1%;
+    padding-right: 10%;
+}
+select{
+    width: 100%;
+}
+
+body{
+    background-image:url("cellphone.jpg");
+    background-size: 100%;
+    color:#ffffff;
+
+}
+.btn{
+    width: 70%;
+    height: 25%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+.centered
+{
+    padding-left: 10%;
+    padding-top: 1%;
+    padding-right: 25%;
+}
+.container{
+    padding-left:10%;
+    padding-right:10%;
+    font-size: medium;
+    font-family: "Comic Sans MS";
+
+}
+.container1{
+    padding-left:7%;
+    width:25%;
+    font-size: medium;
+    background-color: #000000;
+    font-family: "Comic Sans MS";
+
+}
+.btn-group{
+    width:100%;
+}

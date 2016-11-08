@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+
+
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Phone Number Validation</title>
+
+    <script src="app.js"></script>
+
+</head>
+<body ng-app=validate>
+
+<div ng-controller=validatectrl>
+    <form>
+        <div class="form-group">
+            <h2>Phone Number Validation</h2>
+            <input type="text" class="form-control" placeholder="Enter Your Phone Number"  ng-model="n">
+        </div>
+    <div class="centered">
+        <button class="btn btn-success" ng-click="get()">Perform Validation Process</button>
+    </div>
+        </form>
+
+
+    <div class="container1">
+        <p ng-model="details">
+
+        <div>Valid&nbsp::&nbsp&nbsp {{details.valid}} </div><br>
+        <div>Number&nbsp::&nbsp&nbsp {{details.number}} </div><br>
+        <div>Local Format&nbsp::&nbsp&nbsp {{details.local_format}} </div><br>
+        <div>International Format&nbsp::&nbsp&nbsp {{details.international_format}} </div><br>
+        <div>Country Prefix&nbsp::&nbsp&nbsp {{details.country_prefix}} </div><br>
+        <div>Country Code&nbsp::&nbsp&nbsp {{details.country_code}} </div><br>
+        <div>Country Name&nbsp::&nbsp&nbsp {{details.country_name}} </div><br>
+        <div>Location&nbsp::&nbsp&nbsp {{details.location}} </div><br>
+        <div>Carrier&nbsp::&nbsp&nbsp {{details.carrier}} </div><br>
+        <div>Line Type&nbsp::&nbsp&nbsp{{details.line_type}} </div><br>
+        <div>Positive&nbsp::&nbsp&nbsp{{details.positive}}&nbsp% </div><br>
+        <div>Negative&nbsp::&nbsp&nbsp{{details.negative}} &nbsp%</div><br>
+
+
+        </p>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>
