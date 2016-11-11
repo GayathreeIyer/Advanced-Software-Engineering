@@ -1,4 +1,4 @@
-var MongoUser = require('mongodb').MongoUser;
+var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var bodyParser = require("body-parser");
 var express = require('express');
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/register', function (req, res) {
-    MongoUser.connect(url, function(err, db) {
+    MongoClient.connect(url, function(err, db) {
         if(err)
         {  res.write("Connecting to Database Failed");
             res.end();  }
@@ -27,7 +27,7 @@ app.post('/register', function (req, res) {
 
             callback();        });    };})
 app.post('/get-data',function (req,res) {
-    MongoUser.connect(url, function(err, db) {
+    MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
         findUser(db, function() {
             db.close();        });    });
@@ -45,7 +45,7 @@ app.post('/get-data',function (req,res) {
             res.write(JSON.stringify(j));
             res.end();        });    };})
 app.post('/update',function (req,res) {
-    MongoUser.connect(url, function(err, db) {
+    MongoClient.connect(url, function(err, db) {
         if(err)        {
             res.write("Connecting to Database Failed");
             res.end();        }
@@ -63,7 +63,7 @@ app.post('/update',function (req,res) {
             callback();        });    };})
 app.post('/delete', function(req, res) {
     var id = req.body.id1;
-    MongoUser.connect(url, function(err, db) {
+    MongoClient.connect(url, function(err, db) {
         if(err)        {
             res.write("Registration Failed");
             res.end();        }
