@@ -5,7 +5,7 @@ var express = require('express');
 var ObjectIdentity = require('mongodb').ObjectIdentity;
 var cors = require('cors');
 var app = express();
-var output={'body': []};
+var result={'body': []};
 var url = 'mongodb://gayathree:123@ds051873.mlab.com:51873/demo';
 app.use(cors());
 app.use(bodyParser.json());
@@ -39,7 +39,7 @@ app.post('/get-data',function (req,res) {
                 JSON.stringify(j);
                 doc1=j;
             for (var i=0;i<doc.length;i++) {
-                output.body.push({"ID":doc[i]._id,"fname": doc[i].fname,"lname": doc[i].lname,"email": doc[i].email});
+                result.body.push({"ID":doc[i]._id,"fname": doc[i].fname,"lname": doc[i].lname,"email": doc[i].email});
             }console.log(result);
             res.contentType('application/json');
             res.write(JSON.stringify(j));
