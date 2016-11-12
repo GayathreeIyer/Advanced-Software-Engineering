@@ -2,7 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var bodyParser = require("body-parser");
 var express = require('express');
-var ObjectIdentity = require('mongodb').ObjectIdentity;
+var ObjectId = require('mongodb').ObjectId;
 var cors = require('cors');
 var app = express();
 var result={'body': []};
@@ -55,7 +55,7 @@ app.post('/update',function (req,res) {
     var id=req.body.id2;
     var item={fname:req.body.fn,lname:req.body.ln,email:req.body.ml};
     var updateDocument = function(db, data, callback) {
-        db.collection('newase').updateOne({"_id":ObjectIdentity(id)},{$set:item}, function(err, result) {
+        db.collection('newase').updateOne({"_id":ObjectId(id)},{$set:item}, function(err, result) {
             if(err)            {
                 res.write("Registration Failed");
                 res.end();            }
@@ -67,7 +67,7 @@ app.post('/delete', function(req, res) {
         if(err)        {
             res.write("Registration Failed");
             res.end();        }
-        db.collection('newase').deleteOne({"_id": ObjectIdentity(id)}, function(err, result) {
+        db.collection('newase').deleteOne({"_id": ObjectId(id)}, function(err, result) {
             res.write("Successfully Deleted");
             res.end();
             console.log('Item deleted');        });});});
